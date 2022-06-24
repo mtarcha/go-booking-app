@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	var conferenceName = "Go Conference"
@@ -40,8 +43,30 @@ func main() {
 
 	// slices (array with dynamic size)
 	var bookings3 []string
-	bookings3 = append(bookings3, "Tanja", "Vanja")
-	fmt.Printf("The whole slice %v\n", bookings3)
-	fmt.Printf("Type of slice %T \n", bookings3)
-	fmt.Printf("Lenght of slice %v \n", len(bookings3))
+
+	for i := 0; i < 5; i++ {
+		fmt.Println("Please enter your name:")
+		fmt.Scan(&userName)
+		bookings3 = append(bookings3, userName)
+		remainingTickets--
+		fmt.Println("Remaining tickets:", remainingTickets)
+		fmt.Printf("The whole slice %v\n", bookings3)
+		fmt.Printf("Type of slice %T \n", bookings3)
+		fmt.Printf("Lenght of slice %v \n", len(bookings3))
+		fmt.Printf("i %v \n", i)
+	}
+
+	// foreach
+	for index, booking := range bookings3 {
+		var names = strings.Fields(booking)
+		fmt.Printf("booking # %v: %v\n", index, names[0])
+	}
+
+	// for remainingTickets < 10 {
+	// 	// while
+	// }
+
+	// for {
+	// 	// infinite loop
+	// }
 }
