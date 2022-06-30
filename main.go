@@ -62,11 +62,21 @@ func main() {
 		fmt.Printf("booking # %v: %v\n", index, names[0])
 	}
 
-	// for remainingTickets < 10 {
-	// 	// while
-	// }
+	//while
+	for remainingTickets < 10 {
+		break
+	}
 
-	// for {
-	// 	// infinite loop
-	// }
+	// infinite loop
+	for {
+		break
+	}
+
+	if remainingTickets == 0 {
+		fmt.Printf("All tickets are sold out\n")
+	} else if remainingTickets < 25 {
+		fmt.Printf("Half of tickets are remaining\n")
+	} else {
+		fmt.Printf("%v tickets are remaining\n", remainingTickets)
+	}
 }
