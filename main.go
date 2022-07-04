@@ -79,4 +79,15 @@ func main() {
 	} else {
 		fmt.Printf("%v tickets are remaining\n", remainingTickets)
 	}
+
+	switch remainingTickets {
+	case int64(conferenceTicketsCount):
+		fmt.Printf("Nobody buys tickets :(\n")
+	case 0:
+		fmt.Printf("All tickets are sold out\n")
+	case 2, 3:
+		fmt.Printf("bla bla\n")
+	default:
+		fmt.Printf("default value\n")
+	}
 }
