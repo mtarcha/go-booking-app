@@ -5,13 +5,16 @@ import (
 	"strings"
 )
 
+// package level vars, availale in all functions
+var conferenceName = "Go Conference"
+
+const conferenceTicketsCount uint = 50
+
+var remainingTickets int64 = 50
+
 func main() {
-	var conferenceName = "Go Conference"
-	const conferenceTicketsCount uint = 50
-	var remainingTickets int64 = 50
-	fmt.Println("Welcome to", conferenceName, "booking application")
-	fmt.Println("We have total of", conferenceTicketsCount, "tickets and", remainingTickets, "are still available")
-	fmt.Println("Get your tickets here to attend")
+	// does not make sense to pass this is global vars
+	greetUser(conferenceName, int(conferenceTicketsCount), int(remainingTickets))
 
 	var userName string
 	userName = "anonimus"
@@ -90,4 +93,28 @@ func main() {
 	default:
 		fmt.Printf("default value\n")
 	}
+
+	resultofFuntionVar := returnSomehtingFunction("bla")
+	fmt.Println(resultofFuntionVar)
+
+	bla1, bla2 := returnMultipleVariablesFunc("rand input")
+	fmt.Println(bla1, bla2)
+}
+
+// void action
+func greetUser(conferenceName string, ticketsCount int, remainingTickets int) {
+	fmt.Println("Welcome to", conferenceName, "booking application")
+	fmt.Println("We have total of", ticketsCount, "tickets and", remainingTickets, "are still available")
+	fmt.Println("Get your tickets here to attend")
+}
+
+func returnSomehtingFunction(name string) []string {
+	return []string{"res1", "res2"}
+}
+
+func returnMultipleVariablesFunc(inputVar string) (string, bool) {
+	var stringRes string = "bla"
+	boolRes := false
+
+	return stringRes, boolRes
 }
