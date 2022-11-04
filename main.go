@@ -2,22 +2,42 @@ package main
 
 import (
 	"fmt"
+	"go-booking-app/custompac"
 	"strings"
 )
 
-// package level vars, availale in all functions
-var conferenceName = "Go Conference"
+// Global var, availale  accross packages (same goes for functions)
+var ConferenceName = "Go Conference"
 
+// package level vars, availale in all functions
 const conferenceTicketsCount uint = 50
 
 var remainingTickets int64 = 50
 
+// structs/ types
+
+type UserData struct {
+	FirstName       string
+	SecondName      string
+	Email           string
+	NumberOfTickets uint
+}
+
 func main() {
 	// does not make sense to pass this is global vars
-	greetUser(conferenceName, int(conferenceTicketsCount), int(remainingTickets))
+	greetUser(ConferenceName, int(conferenceTicketsCount), int(remainingTickets))
 
 	var userName string
 	userName = "anonimus"
+
+	var user = UserData{
+		FirstName:       "bla1",
+		SecondName:      "bla2",
+		Email:           "a@a.com",
+		NumberOfTickets: 2,
+	}
+
+	fmt.Printf("User type %v, type of struct %T", user, user)
 
 	fmt.Println("Please enter your name:")
 	fmt.Scan(&userName)
@@ -99,6 +119,9 @@ func main() {
 
 	bla1, bla2 := returnMultipleVariablesFunc("rand input")
 	fmt.Println(bla1, bla2)
+
+	helperFunction1("blaaa")
+	custompac.HelperFunctionFromPackage("ttata")
 }
 
 // void action
